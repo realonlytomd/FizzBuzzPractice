@@ -1,2 +1,2 @@
-# PracticeFizzBuzz
+# Practice
 Tech interview practice exercise
