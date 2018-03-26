@@ -8,25 +8,42 @@ $(document).ready(function() {
 
     //get current time when button is clicked, and write to DOM
     var time = moment(timeRightNow).format("h:mm:ss a");
+
     console.log("Current time: " + time);
     $("#timeNow").html(time);
-
+    var AMPM = 0;
+    var firstSplit = [];
+    var timeArray = [];
     var militaryTime = "";
+    // examples:
    // $("#add-train").on("click", function() {
     //$("#startButton").click(function(){
     
     // adding a button click to make use of this app easier
-    $("#get-militaryTime").click (function() {
-    // first split the time string along the colon into array of strings
+    $("#get-militaryTime").on("click", function() {
         event.preventDefault();
+        //first, split off the space and the am or pm, and set AMPM integer.
+        //the original string, time, is not changed
+        var firstSplit = time.split(" ");
+        
+        //the 2nd index is am or pm
+        if (firstSplit[1] === "pm") {
+            AMPM = 12;
+        }
+        console.log("AMPM = " + AMPM);
+        // then save just the first index as justTime
+        var justTime = firstSplit[0];
 
-        timeArray = time.split(":");
+        //  split the time string along the colon into array of strings
+
+        timeArray = justTime.split(":");
 
         console.log("the split up time = " + timeArray);
-    // test to see if the 3rd index is AM or PM.  If PM, add 12 to the 0 Index
-        if (timeArray[3] === "pm") {
-            timeArray[0] = parseInt(timeArray[0]) + 12;
-        } 
+        if (parseInt(timeArray[0]) === 12) {
+            AMPM = 0;
+        }
+
+        timeArray[0] = parseInt(timeArray[0]) + AMPM;
         console.log("after checking for pm and adding 12, timeArray = " + timeArray);
         // join the strings back together and
         // slice off the 3rd index
@@ -34,9 +51,10 @@ $(document).ready(function() {
         var premilitaryTime = timeArray.join(":");
         console.log("premilitaryTime = " + premilitaryTime);
         var militaryTime = premilitaryTime.slice(0,8);
-        console.log(militaryTime);
+        console.log("Military time is: " + militaryTime);
+        $("#milTime").html(militaryTime);
     });
 
-    $("#milTime").html(militaryTime);
+    
 
 });
