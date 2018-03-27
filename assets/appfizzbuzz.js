@@ -6,7 +6,7 @@ $(document).ready(function() {
 			console.log("Fizz Buzz(both 5 and 3) for " + i);
 		} else if ((i % 5) === 0) {
 			console.log("Fizz(5) for " + i);
-		} else if ((i %3) === 0) {
+		} else if ((i % 3) === 0) {
 			console.log("Buzz(3) for " + i);
 		} else {
 			console.log("Nothing for  " + i);
