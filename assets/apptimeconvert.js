@@ -8,16 +8,14 @@ $(document).ready(function() {
 
     //get current time when button is clicked, and write to DOM
     var time = moment(timeRightNow).format("h:mm:ss a");
-
     console.log("Current time: " + time);
+
     $("#timeNow").html(time);
+
     var AMPM = 0;
     var firstSplit = [];
     var timeArray = [];
     var militaryTime = "";
-    // examples:
-   // $("#add-train").on("click", function() {
-    //$("#startButton").click(function(){
     
     // adding a button click to make use of this app easier
     $("#get-militaryTime").on("click", function() {
