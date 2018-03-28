@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array Sort</h2>
+
+<p>The highest number is <span id="demo"></span>.</p>
+<p>The index with the highest number is <span id="demo1"></span>.</p>
+
+<script>
+var points = [40, 100, 1, 300, 5, 25, 200, 10];
+document.getElementById("demo").innerHTML = myArrayMax(points);
+
+
+function myArrayMax(arr) {
+    return Math.max.apply(null, arr);
+}
+
+for (var i = 0; i < points.length; i++) {
+	if (points[i] === myArrayMax(points)) {
+   		document.getElementById("demo1").innerHTML = i;
+    }
+}
+
+</script>
+
+</body>
+</html>
