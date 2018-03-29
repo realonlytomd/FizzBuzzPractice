@@ -6,15 +6,21 @@
 
 <p>The highest number is <span id="demo"></span>.</p>
 <p>The index with the highest number is <span id="demo1"></span>.</p>
+<p>The lowest number is <span id="demo2"></span>.</p>
 
 <script>
 var points = [40, 100, 1, 300, 5, 25, 200, 10];
 document.getElementById("demo").innerHTML = myArrayMax(points);
+document.getElementById("demo2").innerHTML = myArrayMin(points);
 
 
 function myArrayMax(arr) {
     return Math.max.apply(null, arr);
 }
+function myArrayMin(arr) {
+    return Math.min.apply(null, arr);
+}
+
 
 for (var i = 0; i < points.length; i++) {
 	if (points[i] === myArrayMax(points)) {
